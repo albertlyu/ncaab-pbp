@@ -35,14 +35,5 @@ def get_games(scoreboard_urls, base_url, base_path):
 # Start getting games here:
 ## You'll need start_date, end_date (in the form YYYY-MM-DD), conferences, base_url, base_path
 
-start_date = "2014-02-17" # 2013-11-08
-end_date = "2014-03-16" # 2014-03-16
-conferences = ["ncaa64", "nit" "big10", "acc", "big12", "bige", "pac12", "sec", "aac"]
-midmajors = ["aeast","atl10","atsun","bigw","bsky","bsou","coln","cusa","horiz","indp","ivy","maac","mac","meac","mvc","mwest","nec","ovc","patr","sbelt","sland","south","sum","swac","wac","wcc"]
-base_url = "http://data.sportsillustrated.cnn.com/jsonp/basketball/ncaa/men/"
-base_path = "../data/"
-#scoreboard_url = "http://data.sportsillustrated.cnn.com/jsonp/basketball/ncaa/men/scoreboards/ncaa64/2014/03/23/scoreboard.json"
-#pbp_url = "http://data.sportsillustrated.cnn.com/jsonp/basketball/ncaa/men/gameflash/2014/03/23/93932_playbyplay.json"
-
-scoreboard_urls = get_scoreboards(start_date, end_date, ["divia"], base_url, base_path) # Get scoreboard urls
+scoreboard_urls = get_scoreboards(start_date, end_date, conferences, base_url, base_path) # Get scoreboard urls
 game_urls = get_games(scoreboard_urls, base_url, base_path) # Get game urls
