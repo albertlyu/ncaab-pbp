@@ -64,29 +64,30 @@ for playbyplay_path in playbyplay_paths:
 			playbyplay['playbyplay']['plays']['play'][play]['team-id-3']
 			)
 		)
-		c.execute('INSERT OR IGNORE INTO shots VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', (
-			playbyplay['playbyplay']['contest']['id'],
-			playbyplay['playbyplay']['plays']['play'][play]['half'],
-			playbyplay['playbyplay']['plays']['play'][play]['time-minutes'],
-			playbyplay['playbyplay']['plays']['play'][play]['time-seconds'],
-			playbyplay['playbyplay']['plays']['play'][play]['details'],
-			playbyplay['playbyplay']['plays']['play'][play]['player1-id'],
-			playbyplay['playbyplay']['plays']['play'][play]['player2-id'],
-			playbyplay['playbyplay']['plays']['play'][play]['home-score'],
-			playbyplay['playbyplay']['plays']['play'][play]['visitor-score'],
-			playbyplay['playbyplay']['plays']['play'][play]['visitor-fouls'],
-			playbyplay['playbyplay']['plays']['play'][play]['home-fouls'],
-			playbyplay['playbyplay']['plays']['play'][play]['player-fouls'],
-			playbyplay['playbyplay']['plays']['play'][play]['player-score'],
-			playbyplay['playbyplay']['plays']['play'][play]['points-type'],
-			playbyplay['playbyplay']['plays']['play'][play]['detail-desc'],
-			playbyplay['playbyplay']['plays']['play'][play]['event-desc'],
-			playbyplay['playbyplay']['plays']['play'][play]['distance'],
-			playbyplay['playbyplay']['plays']['play'][play]['x-coord'],
-			playbyplay['playbyplay']['plays']['play'][play]['y-coord'],
-			playbyplay['playbyplay']['plays']['play'][play]['team-id-1']
+		if (playbyplay['playbyplay']['plays']['play'][play]['x-coord'] != "" and playbyplay['playbyplay']['plays']['play'][play]['y-coord'] != ""):
+			c.execute('INSERT OR IGNORE INTO shots VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', (
+				playbyplay['playbyplay']['contest']['id'],
+				playbyplay['playbyplay']['plays']['play'][play]['half'],
+				playbyplay['playbyplay']['plays']['play'][play]['time-minutes'],
+				playbyplay['playbyplay']['plays']['play'][play]['time-seconds'],
+				playbyplay['playbyplay']['plays']['play'][play]['details'],
+				playbyplay['playbyplay']['plays']['play'][play]['player1-id'],
+				playbyplay['playbyplay']['plays']['play'][play]['player2-id'],
+				playbyplay['playbyplay']['plays']['play'][play]['home-score'],
+				playbyplay['playbyplay']['plays']['play'][play]['visitor-score'],
+				playbyplay['playbyplay']['plays']['play'][play]['visitor-fouls'],
+				playbyplay['playbyplay']['plays']['play'][play]['home-fouls'],
+				playbyplay['playbyplay']['plays']['play'][play]['player-fouls'],
+				playbyplay['playbyplay']['plays']['play'][play]['player-score'],
+				playbyplay['playbyplay']['plays']['play'][play]['points-type'],
+				playbyplay['playbyplay']['plays']['play'][play]['detail-desc'],
+				playbyplay['playbyplay']['plays']['play'][play]['event-desc'],
+				playbyplay['playbyplay']['plays']['play'][play]['distance'],
+				playbyplay['playbyplay']['plays']['play'][play]['x-coord'],
+				playbyplay['playbyplay']['plays']['play'][play]['y-coord'],
+				playbyplay['playbyplay']['plays']['play'][play]['team-id-1']
+				)
 			)
-		)
 	print("Inserted records into plays from", playbyplay_path)
 
 db.commit()
