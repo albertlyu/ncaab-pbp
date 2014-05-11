@@ -82,8 +82,9 @@ def save_json(url, base_url, base_path):
 			data = parse_json(url, base_url, base_path);
 			if not os.path.exists(dir_path): # create path if it does not exist
 				os.makedirs(dir_path)
-			if data["playbyplay"]["gamestate"]["status"] == "PROG":
-				print(file_name, "still in progress, wait till game is completed...")
+			# Will need to handle both boxscores and playbyplays in progress here
+			#if data["boxscore"]["gamestate"]["status"] == "PROG":# or data["playbyplay"]["gamestate"]["status"] == "PROG":
+			#	print(file_name, "still in progress, wait till game is completed...")
 			else:
 				with open (file_path, "w", newline="") as outputfile:
 					json.dump(data, outputfile)

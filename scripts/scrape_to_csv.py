@@ -1,3 +1,5 @@
+# DEPRECATED
+
 import os
 import urllib.request
 import csv
